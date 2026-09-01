@@ -99,7 +99,7 @@ body {
 .hero-content h1 {
   font-family: 'Fredoka', cursive;
   font-size: 3rem;
-  color: #2e1065;
+  color: #8b5cf6; /* Updated title shade to match Join Our Team purple */
   margin-bottom: 1.2rem;
   line-height: 1.2;
 }
@@ -134,7 +134,9 @@ body {
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.8rem 1.8rem;
   border-radius: 50px;
   font-family: 'Lobster', cursive !important;
@@ -147,17 +149,16 @@ body {
 }
 
 .btn-purple {
-  /* Solid Purple Button Background */
-  background-color: #8b5cf6 !important;
-  
-  /* Animated Pink-to-White Text Gradient */
-  background-image: linear-gradient(90deg, #fbcfe8, #ffffff, #f472b6, #ffffff, #fbcfe8) !important;
-  background-size: 200% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  
+  background-color: #8b5cf6 !important; /* Solid Purple Button Base */
+}
+
+.btn-purple .btn-gradient-text {
+  background-image: linear-gradient(90deg, #fbcfe8, #ffffff, #f472b6, #ffffff, #fbcfe8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   animation: textGradientShift 4s ease infinite;
 }
 
