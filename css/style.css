@@ -1,4 +1,8 @@
-/* GLOBAL RESETS & STYLES */
+
+/* ========================================
+   GLOBAL RESETS & STYLES
+======================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +12,21 @@
 body {
   font-family: 'Quicksand', sans-serif;
   color: #333333;
-  /* Pastel Pink to Blue Gradient Background */
-  background: linear-gradient(135deg, #fbcfe8 0%, #dbeafe 50%, #93c5fd 100%);
+  background: linear-gradient(
+    135deg,
+    #fbcfe8 0%,
+    #dbeafe 50%,
+    #93c5fd 100%
+  );
   background-attachment: fixed;
   min-height: 100vh;
 }
 
-/* NAVBAR */
+
+/* ========================================
+   NAVBAR
+======================================== */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -65,14 +77,18 @@ body {
   transform: translateY(-2px);
 }
 
-/* HERO SECTION */
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem 3rem 2rem;
+  padding: 4rem 2rem 3rem;
   gap: 2rem;
 }
 
@@ -100,7 +116,11 @@ body {
   gap: 1rem;
 }
 
-/* BUTTONS */
+
+/* ========================================
+   BUTTONS
+======================================== */
+
 .btn {
   display: inline-block;
   padding: 0.8rem 1.8rem;
@@ -133,6 +153,11 @@ body {
   transform: translateY(-2px);
 }
 
+
+/* ========================================
+   HERO GRAPHIC
+======================================== */
+
 .hero-graphic-placeholder {
   flex: 0.8;
   display: flex;
@@ -151,10 +176,14 @@ body {
   font-weight: 600;
 }
 
-/* WHAT WE DO SECTION */
+
+/* ========================================
+   WHAT WE DO
+======================================== */
+
 .what-we-do-container {
   max-width: 1200px;
-  margin: 2rem auto 4rem auto;
+  margin: 2rem auto 4rem;
   padding: 0 2rem;
 }
 
@@ -192,33 +221,11 @@ body {
   color: #4b5563;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
 
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* ========================================
+   GET INVOLVED
+======================================== */
 
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* GET INVOLVED SECTION */
 .get-involved-container {
   max-width: 1200px;
   margin: 4rem auto;
@@ -254,7 +261,11 @@ body {
   color: #6b21a8;
 }
 
-/* ROLES GRID */
+
+/* ========================================
+   ROLES GRID
+======================================== */
+
 .roles-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -295,28 +306,96 @@ body {
   max-width: 140px;
 }
 
-/* RESPONSIVE BREAKPOINTS FOR GET INVOLVED */
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
 @media (max-width: 992px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .roles-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem 1.5rem;
   }
 }
 
-@media (max-width: 576px) {
+
+@media (max-width: 600px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .graphic-box {
+    width: 230px;
+    height: 230px;
+  }
+
+  .what-we-do-container,
+  .get-involved-container {
+    padding: 0 1rem;
+  }
+
+  .what-we-do-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
   .roles-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 1rem;
   }
-  
+
   .role-card .icon-wrapper {
-    font-size: 1.8rem;
     width: 55px;
     height: 55px;
+    font-size: 1.8rem;
   }
-  
+
   .role-card h3 {
     font-size: 0.95rem;
   }
 }
+
 
