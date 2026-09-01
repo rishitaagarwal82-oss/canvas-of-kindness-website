@@ -11,7 +11,7 @@
 body {
   font-family: 'Quicksand', sans-serif;
   color: #333333;
-  /* Updated Background Gradient: Pink to White */
+  /* Background Gradient: Pink to White */
   background: linear-gradient(
     135deg,
     #fbcfe8 0%,
@@ -58,7 +58,7 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #7e22ce;
+  color: #9d5db8;
 }
 
 .social-icons {
@@ -73,7 +73,7 @@ body {
 }
 
 .social-icons a:hover {
-  color: #7e22ce;
+  color: #9d5db8;
   transform: translateY(-2px);
 }
 
@@ -99,7 +99,7 @@ body {
 .hero-content h1 {
   font-family: 'Fredoka', cursive;
   font-size: 3rem;
-  color: #8b5cf6; /* Updated title shade to match Join Our Team purple */
+  color: #9d5db8; /* Matched to screenshot purple */
   margin-bottom: 1.2rem;
   line-height: 1.2;
 }
@@ -107,7 +107,7 @@ body {
 .hero-content p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #374151;
+  color: #9d5db8; /* Matched to screenshot purple */
   margin-bottom: 2rem;
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .btn-purple {
-  background-color: #8b5cf6 !important; /* Solid Purple Button Base */
+  background-color: #9d5db8 !important; /* Matched to screenshot purple base */
 }
 
 .btn-purple .btn-gradient-text {
@@ -163,18 +163,18 @@ body {
 }
 
 .btn-purple:hover {
-  background-color: #7c3aed !important;
+  background-color: #894ba3 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.35);
+  box-shadow: 0 6px 16px rgba(157, 93, 184, 0.35);
 }
 
 .btn-light {
-  background-color: #f3e8ff;
-  color: #6b21a8;
+  background-color: #fdfbf7; /* Off-white matching screenshot */
+  color: #9d5db8;
 }
 
 .btn-light:hover {
-  background-color: #e9d5ff;
+  background-color: #f5f0e6;
   transform: translateY(-2px);
 }
 
@@ -192,12 +192,12 @@ body {
 .graphic-box {
   width: 280px;
   height: 280px;
-  border: 2px dashed #8b5cf6;
+  border: 2px dashed #9d5db8;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #7c3aed;
+  color: #9d5db8;
   font-weight: 600;
 }
 
@@ -265,9 +265,9 @@ body {
 .get-involved-header h2 {
   font-family: 'Fredoka', cursive;
   font-size: 2.5rem;
-  color: #7e22ce;
+  color: #9d5db8;
   text-decoration: underline;
-  text-decoration-color: #7e22ce;
+  text-decoration-color: #9d5db8;
   text-underline-offset: 8px;
   margin-bottom: 0.75rem;
 }
@@ -297,7 +297,7 @@ body {
   gap: 1.5rem;
   align-items: start;
   padding-top: 2rem;
-  border-top: 2px solid rgba(126, 34, 206, 0.2);
+  border-top: 2px solid rgba(157, 93, 184, 0.2);
 }
 
 .role-card {
@@ -319,7 +319,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 2.2rem;
-  color: #7e22ce;
+  color: #9d5db8;
 }
 
 .role-card h3 {
