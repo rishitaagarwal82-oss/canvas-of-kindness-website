@@ -218,3 +218,105 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* GET INVOLVED SECTION */
+.get-involved-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.get-involved-header {
+  margin-bottom: 3rem;
+}
+
+.get-involved-header h2 {
+  font-family: 'Fredoka', cursive;
+  font-size: 2.5rem;
+  color: #7e22ce;
+  text-decoration: underline;
+  text-decoration-color: #7e22ce;
+  text-underline-offset: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.get-involved-header .subtitle {
+  font-family: 'Fredoka', cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6b21a8;
+  margin-bottom: 0.25rem;
+}
+
+.get-involved-header .description {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6b21a8;
+}
+
+/* ROLES GRID */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(126, 34, 206, 0.2);
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+}
+
+.role-card .icon-wrapper {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #7e22ce;
+}
+
+.role-card h3 {
+  font-family: 'Fredoka', cursive;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6b21a8;
+  line-height: 1.3;
+  max-width: 140px;
+}
+
+/* RESPONSIVE BREAKPOINTS FOR GET INVOLVED */
+@media (max-width: 992px) {
+  .roles-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
+  
+  .role-card .icon-wrapper {
+    font-size: 1.8rem;
+    width: 55px;
+    height: 55px;
+  }
+  
+  .role-card h3 {
+    font-size: 0.95rem;
+  }
+}
+
