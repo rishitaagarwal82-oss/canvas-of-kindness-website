@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapters | Canvas of Kindness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Relative links to your root CSS stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/mobile.css">
+
+    <!-- Google Fonts: Lobster, Fredoka, & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lobster&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Social Icons & Graphics -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(180deg, #FDF0F7 0%, #F8E3F2 40%, #FAEEF6 100%);
+            min-height: 100vh;
+            color: #5D3E68;
+            overflow-x: hidden;
+        }
+
+        .brand-font {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .script-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        /* --- Your Exact style.css Button Animations & Rules --- */
+        @keyframes textGradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .btn-purple {
+          background-color: #9d5db8 !important;
+          font-family: 'Lobster', cursive !important;
+          color: #FFFFFF;
+          border-radius: 50px;
+          transition: all 0.25s ease;
+          box-shadow: 0 4px 14px rgba(157, 93, 184, 0.25);
+        }
+
+        .btn-purple .btn-gradient-text {
+          background-image: linear-gradient(90deg, #fbcfe8, #ffffff, #f472b6, #ffffff, #fbcfe8);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          animation: textGradientShift 4s ease infinite;
+        }
+
+        .btn-purple:hover {
+          background-color: #894ba3 !important;
+          transform: translateY(-2px);
+          box-shadow: 0 0 25px rgba(184, 116, 172, 0.7), 0 6px 16px rgba(157, 93, 184, 0.35);
+        }
+
+        /* --- Cards & Boxes --- */
+        .info-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid #F3DBEE;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(184, 116, 172, 0.08);
+        }
+
+        .chapter-card {
+            background: #FFFFFF;
+            border: 2px solid #E6C2E2;
+            border-radius: 28px;
+            padding: 1.5rem 1rem 1.25rem 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(184, 116, 172, 0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(184, 116, 172, 0.6), 0 10px 30px rgba(164, 105, 190, 0.2);
+            border-color: #D898CD;
+        }
+
+        /* Graphic Placeholder Box */
+        .gfx-placeholder {
+            border: 2px dashed #C490D1;
+            border-radius: 24px;
+            background: rgba(253, 240, 247, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #8E53A8;
+            transition: all 0.3s ease;
+        }
+
+        .gfx-placeholder:hover {
+            box-shadow: 0 0 15px rgba(184, 116, 172, 0.5);
+            background: rgba(253, 240, 247, 0.9);
+        }
+
+        /* Pill Badge for Coming Soon */
+        .badge-coming-soon {
+            background-color: #F8E3F2;
+            color: #8E53A8;
+            font-family: 'Lobster', cursive;
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            font-size: 1rem;
+            border: 1px solid #E6C2E2;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FDF0F7; }
+        ::-webkit-scrollbar-thumb { background: #D898CD; border-radius: 5px; }
+    </style>
+</head>
+<body class="antialiased pb-20 selection:bg-purple-200 selection:text-purple-900">
+
+    <!-- Top Navigation Bar -->
+    <nav class="w-full py-5 px-6 md:px-12 flex items-center justify-between z-50">
+        <a href="../../index.html" class="brand-font text-2xl font-bold text-[#8E53A8] tracking-tight hover:opacity-90 transition">
+            Canvas of Kindness | Chapters
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-[#855B94]">
+            <a href="../../index.html" class="hover:text-[#8E53A8] transition">Home</a>
+            <a href="../volunteer/index.html" class="hover:text-[#8E53A8] transition">Volunteer</a>
+            <a href="index.html" class="text-[#8E53A8] border-b-2 border-[#8E53A8] pb-0.5">Chapters</a>
+            <a href="../executive-team/index.html" class="hover:text-[#8E53A8] transition">Executive Team</a>
+            <a href="../support-us/index.html" class="hover:text-[#8E53A8] transition">Support Us</a>
+            <a href="../interested/index.html" class="hover:text-[#8E53A8] transition">Contact Us</a>
+        </div>
+
+        <div class="flex items-center space-x-4 text-[#855B94] text-lg">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="mailto:contact@canvasofkindness.org" aria-label="Email" class="hover:text-[#8E53A8] transition"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <!-- Page Title Header -->
+    <header class="pt-6 pb-10 text-center px-6 max-w-4xl mx-auto">
+        <h1 class="brand-font text-6xl sm:text-7xl font-bold text-[#8E53A8] tracking-tight">
+            Chapters
+        </h1>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 space-y-16">
+
+        <!-- 1. Hero / Intro Banner Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            
+            <!-- Left Info Box -->
+            <div class="info-card p-8 flex flex-col justify-center">
+                <h2 class="brand-font text-3xl font-bold text-[#8E53A8] mb-4">
+                    Our Chapters
+                </h2>
+                <p class="text-[#734A83] text-base font-medium leading-relaxed">
+                    Chapters are student-led groups at schools or in communities that carry out the mission of Canvas of Kindness Foundation. We are proud to have 10+ chapters across the United States as well as in Hong Kong.
+                </p>
+            </div>
+
+            <!-- Middle Feature Card: Creativity -->
+            <div class="flex flex-col items-center">
+                <div class="gfx-placeholder w-full h-72 mb-4">
+                    <i class="fa-solid fa-palette text-4xl mb-2 text-[#E87EA1]"></i>
+                    <span class="brand-font text-sm font-bold text-[#8E53A8]">Creativity Graphic</span>
+                    <span class="text-xs text-[#9B74AA] mt-1">Art Workshop Photo</span>
+                </div>
+                <div class="btn-purple py-2 px-8 text-xl">
+                    <span class="btn-gradient-text">Creativity</span>
+                </div>
+            </div>
+
+            <!-- Right Feature Card: Leadership -->
+            <div class="flex flex-col items-center">
+                <div class="gfx-placeholder w-full h-72 mb-4">
+                    <i class="fa-solid fa-users-line text-4xl mb-2 text-[#B897D9]"></i>
+                    <span class="brand-font text-sm font-bold text-[#8E53A8]">Leadership Graphic</span>
+                    <span class="text-xs text-[#9B74AA] mt-1">Community Activity Photo</span>
+                </div>
+                <div class="btn-purple py-2 px-8 text-xl">
+                    <span class="btn-gradient-text">Leadership</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 2. Active Chapters Grid Section -->
+        <section class="space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Active 1: Clarksburg High School -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-school text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Clarksburg High School</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 2: Monrovia High School -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-graduation-cap text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Monrovia High School</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 3: Otay Ranch High School -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-award text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Otay Ranch High School</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 4: Summit High School -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-book-open text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Summit High School</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 5: Denton, Texas -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-location-dot text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Denton, Texas</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 6: Frisco, Texas -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-heart-pulse text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Frisco, Texas</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 7: Garden Grove, CA -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-sun text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Garden Grove, CA</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 8: Long Island, NY -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-city text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Long Island, NY</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 9: Rowland Heights, CA -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-tree text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Rowland Heights, CA</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 10: San Francisco, CA -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-bridge text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">San Francisco, CA</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 11: Staten Island, NY -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-building-columns text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Staten Island, NY</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Active 12: Washington -->
+                <div class="chapter-card min-h-[260px]">
+                    <div class="gfx-placeholder w-20 h-20 rounded-full mb-3">
+                        <i class="fa-solid fa-mountain text-xl text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-xl font-bold text-[#734A83] mb-4">Washington</h3>
+                    <a href="../interested/index.html" class="btn-purple py-2 px-6 text-base">
+                        <span class="btn-gradient-text">Follow Us &rarr;</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Coming Soon Section Header & Grid -->
+        <section class="space-y-8 pt-6">
+            <div class="text-center">
+                <h2 class="brand-font text-5xl font-bold text-[#E87EA1] tracking-wide underline decoration-[#F3DBEE] underline-offset-8">
+                    Coming Soon
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Coming Soon 1: Arcadia High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Arcadia High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 2: Ayala High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Ayala High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 3: Cupertino High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Cupertino High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 4: El Dorado High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">El Dorado High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 5: Fountain Valley High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Fountain Valley High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 6: Kent Meridian High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Kent Meridian High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 7: Mira Costa High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Mira Costa High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+                <!-- Coming Soon 8: Yorba Linda High School -->
+                <div class="chapter-card min-h-[240px]">
+                    <div class="gfx-placeholder w-16 h-16 rounded-full mb-3">
+                        <i class="fa-solid fa-clock text-lg text-[#8E53A8]"></i>
+                    </div>
+                    <h3 class="brand-font text-lg font-bold text-[#734A83] mb-3">Yorba Linda High School</h3>
+                    <span class="badge-coming-soon">Coming Soon &rarr;</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Bottom Call To Action Banner -->
+        <section class="info-card p-8 md:p-12 border-t-4 border-[#C490D1] mt-16">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <div class="md:w-7/12 space-y-3 text-center md:text-left">
+                    <p class="text-[#734A83] text-lg sm:text-xl font-medium leading-relaxed">
+                        Are you interested in improving mental health? Do you want to gain leadership skills? Do you need service hours? Start a Canvas of Kindness Foundation chapter today!
+                    </p>
+                </div>
+
+                <div class="md:w-5/12 flex justify-center md:justify-end">
+                    <a href="../interested/index.html" class="btn-purple py-4 px-10 text-2xl">
+                        <span class="btn-gradient-text">Start a Chapter &rarr;</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-20 text-center text-xs text-[#8F6A9B] font-medium">
+        <p>&copy; 2026 Canvas of Kindness Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- Relative JS links pointing to root /js folder -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
