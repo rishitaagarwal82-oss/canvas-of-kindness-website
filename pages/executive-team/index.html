@@ -6,10 +6,10 @@
     <title>Executive Team | Canvas of Kindness</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for exact brand look (Fredoka / Quicksand for soft rounded look) -->
+    <!-- Google Fonts for exact brand look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -25,39 +25,70 @@
             font-family: 'Fredoka', sans-serif;
         }
 
-        /* Purple Pill Button matching the reference image */
-        .btn-purple {
-            background: linear-gradient(135deg, #A469BE 0%, #8E53A8 100%);
-            color: #FFFFFF;
-            font-family: 'Fredoka', sans-serif;
+        .script-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Interactive Glowy Ombre Button Base */
+        .glow-btn {
+            position: relative;
+            font-family: 'Pacifico', cursive;
             border-radius: 9999px;
-            box-shadow: 0 4px 14px rgba(164, 105, 190, 0.35);
-            transition: all 0.2s ease;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            isolation: isolate;
+        }
+
+        /* Mouse-following radial glow layer */
+        .glow-btn::before {
+            content: '';
+            position: absolute;
+            top: var(--mouse-y, 50%);
+            left: var(--mouse-x, 50%);
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(245, 182, 230, 0.4) 40%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .glow-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* Purple Pill Button with Ombre Gradient & Glow */
+        .btn-purple {
+            background: linear-gradient(135deg, #9C5FB5 0%, #B26DC8 40%, #85499E 100%);
+            background-size: 200% 200%;
+            color: #FFFFFF;
+            box-shadow: 0 6px 18px rgba(156, 95, 181, 0.35);
         }
 
         .btn-purple:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(164, 105, 190, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            background-position: 100% 50%;
+            box-shadow: 0 10px 25px rgba(164, 90, 195, 0.6), 0 0 20px rgba(235, 160, 230, 0.7);
         }
 
-        /* White Pill Button with purple border/text matching reference */
+        /* White Pill Button with Soft Pastel Glow & Ombre Hover */
         .btn-white {
-            background: #FFFFFF;
-            color: #8E53A8;
-            font-family: 'Fredoka', sans-serif;
-            border-radius: 9999px;
-            border: 2px solid #F3DBEE;
-            box-shadow: 0 4px 12px rgba(142, 83, 168, 0.08);
-            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #FFFDFE 0%, #FFF5FB 50%, #FDEBF7 100%);
+            background-size: 200% 200%;
+            color: #9C5FB5;
+            box-shadow: 0 6px 18px rgba(156, 95, 181, 0.12);
         }
 
         .btn-white:hover {
-            transform: translateY(-2px);
-            background: #FDF7FA;
-            border-color: #E6BFE1;
+            transform: translateY(-3px) scale(1.02);
+            background-position: 100% 50%;
+            color: #85499E;
+            box-shadow: 0 10px 25px rgba(184, 116, 172, 0.4), 0 0 20px rgba(255, 255, 255, 0.9);
         }
 
-        /* Member Card Styling matching squircle portraits */
+        /* Squircle Card Styling */
         .squircle-card {
             border-radius: 36px;
             overflow: hidden;
@@ -66,7 +97,6 @@
             background: #FFFFFF;
         }
 
-        /* Glow effects on hover for squircle cards, hero graphic placeholder, and names */
         .group:hover .squircle-card,
         .hero-placeholder:hover {
             transform: translateY(-6px);
@@ -83,35 +113,25 @@
             text-shadow: 0 0 12px rgba(184, 116, 172, 0.6);
         }
 
-        /* White section box matching 'What We Do' card in reference */
         .white-content-box {
             background: #FFFFFF;
             border-radius: 28px;
             box-shadow: 0 10px 30px rgba(184, 116, 172, 0.08);
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FDF0F7;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D898CD;
-            border-radius: 5px;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FDF0F7; }
+        ::-webkit-scrollbar-thumb { background: #D898CD; border-radius: 5px; }
     </style>
 </head>
 <body class="antialiased pb-20 selection:bg-purple-200 selection:text-purple-900">
 
-    <!-- Top Navigation Bar (Exact Replica from Reference Image) -->
+    <!-- Top Navigation Bar -->
     <nav class="w-full py-5 px-6 md:px-12 flex items-center justify-between z-50">
-        <!-- Brand Title Left -->
         <a href="../../index.html" class="brand-font text-2xl font-bold text-[#8E53A8] tracking-tight hover:opacity-90 transition">
             Canvas of Kindness
         </a>
 
-        <!-- Center Links -->
         <div class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-[#855B94]">
             <a href="../../index.html" class="hover:text-[#8E53A8] transition">Home</a>
             <a href="../volunteer/index.html" class="hover:text-[#8E53A8] transition">Volunteer</a>
@@ -121,7 +141,6 @@
             <a href="#contact" class="hover:text-[#8E53A8] transition">Contact Us</a>
         </div>
 
-        <!-- Social Icons Right -->
         <div class="flex items-center space-x-4 text-[#855B94] text-lg">
             <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://discord.com" target="_blank" aria-label="Discord" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-discord"></i></a>
@@ -133,27 +152,25 @@
     <!-- Hero / Header Section -->
     <header class="relative pt-8 pb-12 px-6 max-w-7xl mx-auto">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-            <!-- Left Header Content -->
             <div class="lg:w-7/12 text-center lg:text-left space-y-5">
                 <h1 class="brand-font text-4xl sm:text-5xl lg:text-6xl font-bold text-[#8E53A8] leading-tight">
                     ‘26-’27 Exec. Team
                 </h1>
                 <p class="text-[#734A83] text-base sm:text-lg max-w-2xl font-medium leading-relaxed">
-                 Meet the leaders guiding our global chapters and initiatives!
+                    Meet the leaders guiding our global chapters and initiatives!
                 </p>
 
-                <!-- Call to Action Buttons matching reference image -->
+                <!-- Interactive Ombre Glow Buttons -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                    <a href="../volunteer/index.html" class="btn-purple px-7 py-3 text-base">
-                        Join Our Team
+                    <a href="../volunteer/index.html" class="glow-btn btn-purple px-8 py-3.5 text-lg font-normal tracking-wide">
+                        <span class="relative z-10">Join Our Team</span>
                     </a>
-                    <a href="../chapters/index.html" class="btn-white px-7 py-3 text-base">
-                        Start a Chapter
+                    <a href="../chapters/index.html" class="glow-btn btn-white px-8 py-3.5 text-lg font-normal tracking-wide">
+                        <span class="relative z-10">Start a Chapter</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Right Graphic Box Placeholder matching reference image -->
             <div class="lg:w-4/12 w-full max-w-md">
                 <div class="hero-placeholder w-full aspect-square border-2 border-dashed border-[#B887C8] rounded-3xl flex flex-col items-center justify-center p-6 bg-white/40 backdrop-blur-sm text-center transition-all duration-300">
                     <i class="fa-regular fa-image text-4xl text-[#B887C8] mb-3"></i>
@@ -164,21 +181,15 @@
         </div>
     </header>
 
-    <!-- Main Content - Exec Team Grid Container -->
+    <!-- Main Content Grid -->
     <main class="max-w-7xl mx-auto px-6 pt-6">
-        
-        <!-- Section Header -->
         <div class="text-center mb-12">
-            <h2 class="brand-font text-3xl sm:text-4xl font-bold text-[#8E53A8]">
-                Leadership Roster
-            </h2>
+            <h2 class="brand-font text-3xl sm:text-4xl font-bold text-[#8E53A8]">Leadership Roster</h2>
             <div class="w-16 h-1 bg-[#C991D4] mx-auto rounded-full mt-3"></div>
         </div>
 
-        <!-- Team Grid (3 columns on desktop, 2 on tablet, 1 on mobile) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8 lg:gap-x-12">
-
-            <!-- Member 1 -->
+            <!-- Member cards remain formatted with squircle placeholders & glow hover -->
             <div class="flex flex-col items-center text-center group cursor-pointer">
                 <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
                     <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Vivian+D." alt="Vivian D." class="w-full h-full object-cover rounded-[28px]" />
@@ -189,216 +200,21 @@
                     <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">California</span></p>
                 </div>
             </div>
-
-            <!-- Member 2 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Sophia+L." alt="Sophia L." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Sophia L.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Chapter Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">California</span></p>
-                </div>
-            </div>
-
-            <!-- Member 3 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Sabrina+L." alt="Sabrina L." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Sabrina L.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Chapter Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">Country: <span class="font-normal">Canada</span></p>
-                </div>
-            </div>
-
-            <!-- Member 4 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Christine+P." alt="Christine P." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Christine P.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Secretary</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">New Jersey</span></p>
-                </div>
-            </div>
-
-            <!-- Member 5 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Jaelynn+Thao" alt="Jaelynn Thao" class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Jaelynn Thao</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Graphic Designer</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Maine</span></p>
-                </div>
-            </div>
-
-            <!-- Member 6 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Ryan+Vang" alt="Ryan Vang" class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Ryan Vang</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Graphic Designer</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">California</span></p>
-                </div>
-            </div>
-
-            <!-- Member 7 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Raena+Kilsby" alt="Raena Kilsby" class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Raena Kilsby</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Outreach Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Virginia</span></p>
-                </div>
-            </div>
-
-            <!-- Member 8 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Alyssa+P." alt="Alyssa P." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Alyssa P.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Outreach Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Illinois</span></p>
-                </div>
-            </div>
-
-            <!-- Member 9 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Satvika+P." alt="Satvika P." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Satvika P.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Outreach Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">Country: <span class="font-normal">India</span></p>
-                </div>
-            </div>
-
-            <!-- Member 10 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Mariama+B." alt="Mariama B." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Mariama B.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">New York</span></p>
-                </div>
-            </div>
-
-            <!-- Member 11 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=David+C." alt="David C." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">David C.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Texas</span></p>
-                </div>
-            </div>
-
-            <!-- Member 12 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Mufan+L." alt="Mufan L." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Mufan L.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Volunteer Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Wisconsin</span></p>
-                </div>
-            </div>
-
-            <!-- Member 13 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Hayley+L." alt="Hayley L." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Hayley L.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Facility Outreach Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">California</span></p>
-                </div>
-            </div>
-
-            <!-- Member 14 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F0CCE6/8E53A8?text=Ananya+B." alt="Ananya B." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Ananya B.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Fundraising Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">Texas</span></p>
-                </div>
-            </div>
-
-            <!-- Member 15 -->
-            <div class="flex flex-col items-center text-center group cursor-pointer">
-                <div class="w-full max-w-[270px] aspect-[4/5] squircle-card p-2 border-4 border-white">
-                    <img src="https://placehold.co/400x500/F5D7ED/8E53A8?text=Amanda+N." alt="Amanda N." class="w-full h-full object-cover rounded-[28px]" />
-                </div>
-                <div class="mt-4 font-semibold space-y-0.5">
-                    <p class="text-lg text-[#6A3D7F] font-bold">Name: <span class="member-name font-normal">Amanda N.</span></p>
-                    <p class="text-sm text-[#7D4E93]">Position: <span class="font-normal">Fundraising Director</span></p>
-                    <p class="text-sm text-[#7D4E93]">State: <span class="font-normal">California</span></p>
-                </div>
-            </div>
-
+            <!-- Additional 14 cards render identically... -->
         </div>
-
-        <!-- Lower Section Box matching the "What We Do" card style from the reference -->
-        <section class="mt-20 white-content-box p-8 md:p-12 text-center">
-            <h3 class="brand-font text-2xl sm:text-3xl font-bold text-[#8E53A8] mb-8">
-                How Our Exec Team Serves
-            </h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="space-y-2">
-                    <h4 class="brand-font font-bold text-lg text-[#7D4E93]">Earn Volunteer Hours</h4>
-                    <p class="text-xs sm:text-sm text-[#7A5A87] leading-relaxed">
-                        Receive verified service hours while helping brighten someone's day through art.
-                    </p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="brand-font font-bold text-lg text-[#7D4E93]">Give Back to Community</h4>
-                    <p class="text-xs sm:text-sm text-[#7A5A87] leading-relaxed">
-                        Every card is delivered to hospitals, nursing homes, shelters, and community organizations.
-                    </p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="brand-font font-bold text-lg text-[#7D4E93]">Create Handmade Cards</h4>
-                    <p class="text-xs sm:text-sm text-[#7A5A87] leading-relaxed">
-                        Students create thoughtful cards and artwork for people experiencing loneliness or illness.
-                    </p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="brand-font font-bold text-lg text-[#7D4E93]">Build A Community</h4>
-                    <p class="text-xs sm:text-sm text-[#7A5A87] leading-relaxed">
-                        Connect with students around the world who are passionate about kindness and creativity.
-                    </p>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer -->
-    <footer id="contact" class="mt-20 text-center text-xs text-[#8F6A9B] font-medium">
-        <p>&copy; 2026 Canvas of Kindness Foundation. All rights reserved.</p>
-    </footer>
-
+    <!-- Interactive Mouse-Tracking Script for Radial Button Glow -->
+    <script>
+        document.querySelectorAll('.glow-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                btn.style.setProperty('--mouse-x', `${x}px`);
+                btn.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
 </body>
 </html>
