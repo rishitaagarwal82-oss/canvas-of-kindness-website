@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer | Canvas of Kindness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Relative links to your root CSS stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/mobile.css">
+
+    <!-- Google Fonts: Lobster, Fredoka, & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lobster&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(180deg, #FDF0F7 0%, #F8E3F2 40%, #FAEEF6 100%);
+            min-height: 100vh;
+            color: #5D3E68;
+            overflow-x: hidden;
+        }
+
+        .brand-font {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .script-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        /* --- Button Gradient Animation --- */
+        @keyframes textGradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        /* --- Content Container Box matching reference --- */
+        .content-box {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            border: 2px solid #F3DBEE;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(184, 116, 172, 0.1);
+        }
+
+        /* --- Volunteer CTA Button ---. */
+        .volunteer-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(135deg, #E87EA1 0%, #D85A85 100%);
+            color: #FFFFFF;
+            border-radius: 9999px;
+            font-family: 'Lobster', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 20px rgba(216, 90, 133, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .volunteer-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 25px rgba(235, 130, 170, 0.7), 0 10px 30px rgba(216, 90, 133, 0.4);
+        }
+
+        /* --- Sticky Notes Staggered Layout --- */
+        .sticky-note {
+            position: relative;
+            padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(130, 80, 115, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .sticky-note:hover {
+            transform: translateY(-5px) scale(1.02) rotate(0deg) !important;
+            box-shadow: 0 0 25px rgba(184, 116, 172, 0.7), 0 12px 35px rgba(130, 80, 115, 0.25);
+            z-index: 20;
+        }
+
+        /* Sticky Note Tape Graphic */
+        .tape {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.65);
+            border-left: 2px dashed rgba(180, 120, 160, 0.3);
+            border-right: 2px dashed rgba(180, 120, 160, 0.3);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            z-index: 10;
+        }
+
+        .tape-pink { background: repeating-linear-gradient(45deg, #f7b2cb, #f7b2cb 6px, #f291b5 6px, #f291b5 12px); }
+        .tape-blue { background: repeating-linear-gradient(45deg, #b2d8f7, #b2d8f7 6px, #91c4f2 6px, #91c4f2 12px); }
+        .tape-purple { background: repeating-linear-gradient(45deg, #d8b2f7, #d8b2f7 6px, #c491f2 6px, #c491f2 12px); }
+
+        /* Color Variants */
+        .note-pink { background-color: #F8B4CD; color: #5D2A42; }
+        .note-purple { background-color: #B897D9; color: #3A2052; }
+        .note-blue { background-color: #9ECBEF; color: #1D3B59; }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FDF0F7; }
+        ::-webkit-scrollbar-thumb { background: #D898CD; border-radius: 5px; }
+    </style>
+</head>
+<body class="antialiased pb-24 selection:bg-purple-200 selection:text-purple-900">
+
+    <!-- Top Navigation Bar -->
+    <nav class="w-full py-5 px-6 md:px-12 flex items-center justify-between z-50">
+        <a href="../../index.html" class="brand-font text-2xl font-bold text-[#8E53A8] tracking-tight hover:opacity-90 transition">
+            Canvas of Kindness | Volunteer
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-[#855B94]">
+            <a href="../../index.html" class="hover:text-[#8E53A8] transition">Home</a>
+            <a href="index.html" class="text-[#8E53A8] border-b-2 border-[#8E53A8] pb-0.5">Volunteer</a>
+            <a href="../chapters/index.html" class="hover:text-[#8E53A8] transition">Chapters</a>
+            <a href="../executive-team/index.html" class="hover:text-[#8E53A8] transition">Executive Team</a>
+            <a href="../support-us/index.html" class="hover:text-[#8E53A8] transition">Support Us</a>
+            <a href="../interested/index.html" class="hover:text-[#8E53A8] transition">Contact Us</a>
+        </div>
+
+        <div class="flex items-center space-x-4 text-[#855B94] text-lg">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="mailto:contact@canvasofkindness.org" aria-label="Email" class="hover:text-[#8E53A8] transition"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <!-- Main Header Section -->
+    <header class="pt-6 pb-10 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <h1 class="brand-font text-6xl sm:text-7xl font-bold text-[#8E53A8] tracking-tight">
+            Volunteer
+        </h1>
+        <!-- Bee Art Illustration Placeholder -->
+        <div class="w-48 h-44 border-2 border-dashed border-[#C490D1] rounded-3xl bg-white/40 flex flex-col items-center justify-center text-center p-3 shadow-sm">
+            <i class="fa-solid fa-paintbrush text-3xl text-[#B887C8] mb-2"></i>
+            <span class="brand-font text-xs text-[#8E53A8] font-semibold">Bee Art Illustration</span>
+            <span class="text-[10px] text-[#A87BB9] mt-0.5">Reference Graphic</span>
+        </div>
+    </header>
+
+    <!-- Volunteer With Us Section -->
+    <main class="max-w-7xl mx-auto px-6 space-y-16">
+        
+        <section class="content-box p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="space-y-4 lg:w-7/12">
+                <h2 class="brand-font text-3xl sm:text-4xl font-bold text-[#8E53A8]">
+                    Volunteer With Us!
+                </h2>
+                <p class="text-[#734A83] text-base sm:text-lg font-medium leading-relaxed">
+                    Are you interested in supporting meaningful initiatives and connecting with students from around the world? Do you want to develop valuable skills? Do you need service hours?
+                </p>
+                <p class="text-[#734A83] text-base sm:text-lg font-medium leading-relaxed">
+                    Then volunteering for Canvas of Kindness Foundation is meant for you!
+                </p>
+            </div>
+            <div class="lg:w-auto flex justify-center">
+                <a href="../interested/index.html" class="volunteer-btn">
+                    <span>Volunteer &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="relative pt-10 pb-16">
+            
+            <div class="text-center mb-16">
+                <h2 class="script-font text-5xl sm:text-6xl text-[#8E53A8]">
+                    Testimonials
+                </h2>
+                <div class="w-32 h-1 bg-[#C991D4] mx-auto rounded-full mt-3"></div>
+            </div>
+
+            <!-- Staggered Sticky Notes Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto px-4">
+
+                <!-- Note 1 -->
+                <div class="sticky-note note-pink transform -rotate-3 translate-y-4">
+                    <div class="tape tape-pink"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "Canvas of Kindness Foundation is a place where I resonate with because of the not so talked about nature of mental health. I came from a bad mental state and CKF helped me raise awareness while also proving to myself that mental health is so important."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Yuki, Chapter Member</p>
+                </div>
+
+                <!-- Note 2 -->
+                <div class="sticky-note note-purple transform rotate-2 translate-y-0">
+                    <div class="tape tape-blue"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "CKF to me, is all rooted in optimism and mental health. CKF values the art of the youth and uses it to promote mental well-being, the experiences I had so far based on these values deeply mean a lot to me."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Avantika, Intern</p>
+                </div>
+
+                <!-- Note 3 -->
+                <div class="sticky-note note-purple transform -rotate-2 translate-y-8">
+                    <div class="tape tape-pink"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "It is a foundation that gives opportunities for teens to help in various ways for a great cause which relates to mental health. Personally as an intern I am looking forward to providing my help to a good cause, and CKF gives me the base to start."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Kushal Pyreddy, Intern & Volunteer</p>
+                </div>
+
+                <!-- Note 4 -->
+                <div class="sticky-note note-blue transform rotate-3 translate-y-2">
+                    <div class="tape tape-purple"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "To me CKF is a place where I get to work with amazing people and where I get the chance to help people who are struggling and hopefully make their life easier."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Olivia, Intern & Volunteer</p>
+                </div>
+
+                <!-- Note 5 -->
+                <div class="sticky-note note-pink transform -rotate-1 translate-y-6">
+                    <div class="tape tape-blue"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "Canvas of kindness became the place where I improve and practice graphic designing while creating meaningful posts that also promote mental health, kindness, and care."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Juli, Intern</p>
+                </div>
+
+                <!-- Note 6 -->
+                <div class="sticky-note note-blue transform rotate-2 translate-y-4">
+                    <div class="tape tape-pink"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "It is apart of who I am, it is something people can do to connect back with their community"
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Sophia Nguyen, Chapter Member</p>
+                </div>
+
+                <!-- Note 7 -->
+                <div class="sticky-note note-purple transform -rotate-3 translate-y-10">
+                    <div class="tape tape-blue"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "CKF means so much to me. I want to be a therapist when I'm older and being a chapter leader really helps me open my eyes to more problems that could be going on in teens' lives."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Nya Owes, Chapter Member</p>
+                </div>
+
+                <!-- Note 8 -->
+                <div class="sticky-note note-blue transform rotate-1 translate-y-2">
+                    <div class="tape tape-purple"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "CKF has positively impacted me as I was able to show my creativity through graphic designing. I was also able to improve the mental health stigma within my community."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Jaelynn Thao, Exec. Board & Intern</p>
+                </div>
+
+                <!-- Note 9 -->
+                <div class="sticky-note note-pink transform -rotate-2 translate-y-8">
+                    <div class="tape tape-pink"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "CKF has positively impacted my community as I was able to create cards, bracelets, and more items for hospitals. I was also able to help other communities in need."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Sophia Lor, Exec. Board</p>
+                </div>
+
+                <!-- Note 10 -->
+                <div class="sticky-note note-blue transform rotate-3 translate-y-6">
+                    <div class="tape tape-blue"></div>
+                    <p class="text-sm sm:text-base font-semibold leading-relaxed mb-4">
+                        "CKF significantly impacted me by reminding me I am not alone in my experiences. And if I ever need help expressing my feelings I know the CKF community will be here as my safe space."
+                    </p>
+                    <p class="text-sm font-bold text-right italic">-Aubrey O., Exec. Board</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-20 text-center text-xs text-[#8F6A9B] font-medium">
+        <p>&copy; 2026 Canvas of Kindness Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- Relative JS links pointing to root /js folder -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
