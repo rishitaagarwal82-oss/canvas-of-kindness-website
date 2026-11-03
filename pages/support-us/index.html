@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us | Canvas of Kindness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Relative links to your root CSS stylesheets -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/mobile.css">
+
+    <!-- Google Fonts: Lobster, Fredoka, & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lobster&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Social Icons & Placeholders -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(180deg, #FDF0F7 0%, #F8E3F2 40%, #FAEEF6 100%);
+            min-height: 100vh;
+            color: #5D3E68;
+            overflow-x: hidden;
+        }
+
+        .brand-font {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .script-font {
+            font-family: 'Lobster', cursive;
+        }
+
+        /* --- Your Exact style.css Button Animations & Rules --- */
+        @keyframes textGradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0.8rem 1.8rem;
+          border-radius: 50px;
+          font-family: 'Lobster', cursive !important;
+          font-weight: 400;
+          text-decoration: none;
+          font-size: 1.25rem;
+          letter-spacing: 0.5px;
+          transition: all 0.25s ease;
+          box-shadow: 0 4px 14px rgba(157, 93, 184, 0.25);
+        }
+
+        .btn-purple {
+          background-color: #9d5db8 !important;
+        }
+
+        .btn-purple .btn-gradient-text {
+          background-image: linear-gradient(90deg, #fbcfe8, #ffffff, #f472b6, #ffffff, #fbcfe8);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          animation: textGradientShift 4s ease infinite;
+        }
+
+        .btn-purple:hover {
+          background-color: #894ba3 !important;
+          transform: translateY(-2px);
+          box-shadow: 0 0 25px rgba(184, 116, 172, 0.7), 0 6px 16px rgba(157, 93, 184, 0.35);
+        }
+
+        /* --- Card Styles --- */
+        .contribute-card {
+            background: #FFFFFF;
+            border: 2px solid #F3DBEE;
+            border-radius: 28px;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(184, 116, 172, 0.08);
+        }
+
+        .contribute-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(184, 116, 172, 0.6), 0 10px 30px rgba(164, 105, 190, 0.2);
+            border-color: #E6BFE1;
+        }
+
+        .impact-box {
+            background: rgba(255, 255, 255, 0.65);
+            border: 2px solid #F3DBEE;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(184, 116, 172, 0.08);
+        }
+
+        .stat-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 6px 20px rgba(184, 116, 172, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(184, 116, 172, 0.5);
+        }
+
+        .banner-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(184, 116, 172, 0.08);
+            border: 2px solid #F3DBEE;
+        }
+
+        /* Generic Graphic Placeholder Style */
+        .gfx-placeholder {
+            border: 2px dashed #C490D1;
+            border-radius: 20px;
+            background: rgba(253, 240, 247, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #8E53A8;
+            transition: all 0.3s ease;
+        }
+
+        .gfx-placeholder:hover {
+            box-shadow: 0 0 15px rgba(184, 116, 172, 0.5);
+            background: rgba(253, 240, 247, 0.9);
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FDF0F7; }
+        ::-webkit-scrollbar-thumb { background: #D898CD; border-radius: 5px; }
+    </style>
+</head>
+<body class="antialiased pb-20 selection:bg-purple-200 selection:text-purple-900">
+
+    <!-- Top Navigation Bar -->
+    <nav class="w-full py-5 px-6 md:px-12 flex items-center justify-between z-50">
+        <a href="../../index.html" class="brand-font text-2xl font-bold text-[#8E53A8] tracking-tight hover:opacity-90 transition">
+            Canvas of Kindness | Support
+        </a>
+
+        <div class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-[#855B94]">
+            <a href="../../index.html" class="hover:text-[#8E53A8] transition">Home</a>
+            <a href="../volunteer/index.html" class="hover:text-[#8E53A8] transition">Volunteer</a>
+            <a href="../chapters/index.html" class="hover:text-[#8E53A8] transition">Chapters</a>
+            <a href="../executive-team/index.html" class="hover:text-[#8E53A8] transition">Executive Team</a>
+            <a href="index.html" class="text-[#8E53A8] border-b-2 border-[#8E53A8] pb-0.5">Support Us</a>
+            <a href="../interested/index.html" class="hover:text-[#8E53A8] transition">Contact Us</a>
+        </div>
+
+        <div class="flex items-center space-x-4 text-[#855B94] text-lg">
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="Discord" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="TikTok" class="hover:text-[#8E53A8] transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="mailto:contact@canvasofkindness.org" aria-label="Email" class="hover:text-[#8E53A8] transition"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-8 pb-10 px-6 max-w-4xl mx-auto text-center space-y-4">
+        <h1 class="brand-font text-5xl sm:text-6xl font-bold text-[#8E53A8] tracking-tight">
+            Support Us
+        </h1>
+        <p class="text-[#734A83] text-sm sm:text-base max-w-3xl mx-auto font-medium leading-relaxed">
+            Kindness grows through the people who choose to believe in it. At Canvas of Kindness, every person who joins our mission becomes part of something greater—a community committed to uplifting others, fostering meaningful connections, and creating opportunities for hope to flourish. Your support allows us to transform compassion into action and continue building a future where kindness leaves a lasting mark on every life it touches.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a href="../interested/index.html" class="btn btn-purple px-8">
+                <span class="btn-gradient-text">Donate</span>
+            </a>
+            <a href="../interested/index.html" class="btn btn-purple px-8">
+                <span class="btn-gradient-text">Follow Us</span>
+            </a>
+            <a href="../chapters/index.html" class="btn btn-purple px-8">
+                <span class="btn-gradient-text">Start a Chapter</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-16 mt-6">
+
+        <!-- 1. Ways To Contribute Section -->
+        <section class="space-y-8">
+            <div class="text-center">
+                <h2 class="script-font text-4xl sm:text-5xl text-[#8E53A8] flex items-center justify-center gap-3">
+                    <span class="text-2xl text-[#C490D1]">✨</span>
+                    Ways To Contribute
+                    <span class="text-2xl text-[#C490D1]">✨</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: Donate -->
+                <div class="contribute-card flex flex-col items-center text-center">
+                    <!-- Placeholder Graphic -->
+                    <div class="gfx-placeholder w-28 h-28 mb-4">
+                        <i class="fa-solid fa-hand-holding-heart text-3xl mb-1"></i>
+                        <span class="text-[10px] font-bold">Donate Graphic</span>
+                    </div>
+                    <h3 class="script-font text-2xl text-[#8E53A8] mb-2">Donate</h3>
+                    <p class="text-xs text-[#734A83] leading-relaxed font-medium">
+                        Provides resources, helps organize events, and expands the ability to serve more individuals.
+                    </p>
+                </div>
+
+                <!-- Card 2: Spread Awareness -->
+                <div class="contribute-card flex flex-col items-center text-center">
+                    <!-- Placeholder Graphic -->
+                    <div class="gfx-placeholder w-28 h-28 mb-4">
+                        <i class="fa-solid fa-bullhorn text-3xl mb-1"></i>
+                        <span class="text-[10px] font-bold">Spread Graphic</span>
+                    </div>
+                    <h3 class="script-font text-2xl text-[#8E53A8] mb-2">Spread Awareness</h3>
+                    <p class="text-xs text-[#734A83] leading-relaxed font-medium">
+                        Share our story on social media, tell others about our mission, and help us grow our community of kindness.
+                    </p>
+                </div>
+
+                <!-- Card 3: Join Us -->
+                <div class="contribute-card flex flex-col items-center text-center">
+                    <!-- Placeholder Graphic -->
+                    <div class="gfx-placeholder w-28 h-28 mb-4">
+                        <i class="fa-solid fa-envelope-open-text text-3xl mb-1"></i>
+                        <span class="text-[10px] font-bold">Join Graphic</span>
+                    </div>
+                    <h3 class="script-font text-2xl text-[#8E53A8] mb-2">Join Us</h3>
+                    <p class="text-xs text-[#734A83] leading-relaxed font-medium">
+                        Connect with others who believe in the power of kindness. Volunteer your time, participate in our initiatives, and help us continue making a difference.
+                    </p>
+                </div>
+
+                <!-- Card 4: Feedback -->
+                <div class="contribute-card flex flex-col items-center text-center">
+                    <!-- Placeholder Graphic -->
+                    <div class="gfx-placeholder w-28 h-28 mb-4">
+                        <i class="fa-solid fa-clipboard-check text-3xl mb-1"></i>
+                        <span class="text-[10px] font-bold">Feedback Graphic</span>
+                    </div>
+                    <h3 class="script-font text-2xl text-[#8E53A8] mb-2">Feedback</h3>
+                    <p class="text-xs text-[#734A83] leading-relaxed font-medium">
+                        Your thoughts help us grow and improve. Let us know about your experience, ideas, or suggestions so we can continue creating meaningful opportunities.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. Our Impact Section -->
+        <section class="impact-box space-y-6">
+            <div class="text-center">
+                <h2 class="script-font text-4xl sm:text-5xl text-[#8E53A8] flex items-center justify-center gap-3">
+                    <span class="text-2xl text-[#E87EA1]">💕</span>
+                    Our Impact
+                    <span class="text-2xl text-[#E87EA1]">💕</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Stat 1 -->
+                <div class="stat-card flex flex-col items-center text-center">
+                    <!-- Icon Graphic Placeholder -->
+                    <div class="gfx-placeholder w-20 h-20 mb-3 rounded-full">
+                        <i class="fa-solid fa-heart text-2xl text-[#E87EA1]"></i>
+                    </div>
+                    <span class="brand-font text-3xl font-bold text-[#8E53A8]">500+</span>
+                    <span class="brand-font text-sm font-semibold text-[#734A83] mt-1">Lives Impacted</span>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="stat-card flex flex-col items-center text-center">
+                    <!-- Icon Graphic Placeholder -->
+                    <div class="gfx-placeholder w-20 h-20 mb-3 rounded-full">
+                        <i class="fa-solid fa-users text-2xl text-[#B897D9]"></i>
+                    </div>
+                    <span class="brand-font text-3xl font-bold text-[#8E53A8]">150+</span>
+                    <span class="brand-font text-sm font-semibold text-[#734A83] mt-1">Volunteers</span>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="stat-card flex flex-col items-center text-center">
+                    <!-- Icon Graphic Placeholder -->
+                    <div class="gfx-placeholder w-20 h-20 mb-3 rounded-full">
+                        <i class="fa-solid fa-calendar-check text-2xl text-[#9ECBEF]"></i>
+                    </div>
+                    <span class="brand-font text-3xl font-bold text-[#8E53A8]">20+</span>
+                    <span class="brand-font text-sm font-semibold text-[#734A83] mt-1">Community Events</span>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="stat-card flex flex-col items-center text-center">
+                    <!-- Icon Graphic Placeholder -->
+                    <div class="gfx-placeholder w-20 h-20 mb-3 rounded-full">
+                        <i class="fa-solid fa-earth-americas text-2xl text-[#75C4B1]"></i>
+                    </div>
+                    <span class="brand-font text-3xl font-bold text-[#8E53A8]">15+</span>
+                    <span class="brand-font text-sm font-semibold text-[#734A83] mt-1">Chapters</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Ready To Make A Difference? Section -->
+        <section class="banner-card p-8 sm:p-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <!-- Graphic Placeholder: Hands & Heart Illustration -->
+                <div class="gfx-placeholder w-full md:w-5/12 h-60 rounded-2xl p-4">
+                    <i class="fa-solid fa-hands-holding-circle text-5xl mb-2 text-[#E87EA1]"></i>
+                    <span class="brand-font text-base font-bold text-[#8E53A8]">Hands & Heart Illustration</span>
+                    <span class="text-xs text-[#9B74AA] mt-1">Graphic Placeholder</span>
+                </div>
+
+                <!-- Text Content -->
+                <div class="w-full md:w-7/12 space-y-4 text-center md:text-left">
+                    <h2 class="brand-font text-3xl sm:text-4xl font-bold text-[#8E53A8]">
+                        Ready To Make A Difference?
+                    </h2>
+                    <p class="text-[#734A83] text-sm sm:text-base font-medium leading-relaxed">
+                        Every act of kindness has the power to change a life. Join Canvas of Kindness in building a more compassionate community where hope, generosity, and service inspire lasting change. Whether you choose to volunteer, donate, spread awareness, or simply share our mission, your support helps us reach more people and create a brighter future—one act of kindness at a time.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Quote Banner Section with Floral & Bee Placeholders -->
+        <section class="relative banner-card p-10 text-center overflow-hidden">
+            <!-- Quote Header -->
+            <div class="relative z-10 space-y-4 max-w-2xl mx-auto py-4">
+                <p class="brand-font text-2xl sm:text-3xl font-bold text-[#8E53A8] italic">
+                    “No act of kindness, no matter how small, is ever wasted.”
+                </p>
+                
+                <!-- Swirl Divider Placeholder -->
+                <div class="w-32 h-1 bg-[#C991D4] mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <!-- Bottom Left Floral Graphic Placeholder -->
+            <div class="gfx-placeholder absolute bottom-2 left-2 w-32 h-20 rounded-xl text-[10px] hidden sm:flex">
+                <i class="fa-solid fa-spa text-lg mb-0.5"></i>
+                <span>Floral Graphic</span>
+            </div>
+
+            <!-- Bottom Right Bee Graphic Placeholder -->
+            <div class="gfx-placeholder absolute bottom-2 right-2 w-28 h-24 rounded-xl text-[10px] hidden sm:flex">
+                <i class="fa-solid fa-bugs text-lg mb-0.5"></i>
+                <span>Bee Character</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-20 text-center text-xs text-[#8F6A9B] font-medium">
+        <p>&copy; 2026 Canvas of Kindness Foundation. All rights reserved.</p>
+    </footer>
+
+    <!-- Relative JS links pointing to root /js folder -->
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
